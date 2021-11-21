@@ -97,18 +97,15 @@ def update():
         
 
 def move():
-    gui.get_event()
     x , y = my_pos[None][0], my_pos[None][1]
-    if gui.is_pressed('w'):
-        y += move_dpos_y
-    if gui.is_pressed('s'):
-        y -= move_dpos_y
-    if gui.is_pressed('a'):
-        x -= move_dpos_x
-    if gui.is_pressed('d'):
-        x += move_dpos_x
+    # if gui.get_event(ti.GUI.PRESS):
+        # if gui.event.key == 'r': initialize()
+        # elif gui.event.key in [ti.GUI.ESCAPE, ti.GUI.EXIT]: return
+    if gui.is_pressed('w'): y += move_dpos_y
+    if gui.is_pressed('s'): y -= move_dpos_y
+    if gui.is_pressed('a'): x -= move_dpos_x
+    if gui.is_pressed('d'): x += move_dpos_x
         
-
     x = min(1, max(0, x))
     y = min(1, max(0, y))
     
@@ -137,3 +134,5 @@ while gui.running:
             compute_force()
             update()
     draw()
+    if gui.get_event(ti.GUI.PRESS):
+        if gui.event.key == 'r': initialize()
