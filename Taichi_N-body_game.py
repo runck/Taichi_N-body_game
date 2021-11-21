@@ -124,8 +124,8 @@ def draw():
 
     gui.circle(my_pos[None].to_numpy(), color=0xff0000, radius=10)
     gui.circles(n_pos.to_numpy(), color=0x0055ff, radius=6)  
-    # gui.show()
-    gui.show(f'img/{51+score[None]:0>3d}.png')
+    gui.show()
+    # gui.show(f'img/{51+score[None]:0>3d}.png')
 
 
 
